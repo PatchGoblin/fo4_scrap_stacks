@@ -1,0 +1,24 @@
+# C++ build output
+plugin/build/
+plugin/.xmake/
+.xmake/
+
+# Reverse-engineering outputs: derived from Bethesda's executable, never commit them.
+re/
+*.gpr
+*.rep/
+
+# Scratch and machine-specific files
+*.log
+local/
+__pycache__/
+.venv/
+.pytest_cache/
+.tools/
+
+# Release packages (tools/package.ps1)
+dist/
+
+# Local-only agent and developer notes
+CLAUDE.md
+docs/
