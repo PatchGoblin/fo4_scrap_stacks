@@ -5,7 +5,7 @@ asks for the password and Steam Guard code on the first run, then remembers the 
 
     .\tools\fetch_exes.ps1 -Username <steam account name>
 
-Manifest IDs come from community downgrade guides (see docs/versions.md). Each
+Manifest IDs come from community downgrade guides. Each
 download's file version is checked, so a wrong ID is reported, never trusted.
 Your game install is not touched; everything lands in re/ (gitignored).
 #>
@@ -48,7 +48,7 @@ foreach ($version in $builds.Keys) {
     }
     $manifest = $builds[$version]
     if ($null -eq $manifest) {
-        $results += [pscustomobject]@{ Version = $version; Result = 'SKIPPED: no confirmed manifest ID (see docs/versions.md)' }
+        $results += [pscustomobject]@{ Version = $version; Result = 'SKIPPED: no confirmed manifest ID' }
         continue
     }
 

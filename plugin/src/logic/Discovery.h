@@ -19,7 +19,7 @@ namespace ScrapStacks
 	// and checks every assumption the hooks make. Nothing is patched unless all of it
 	// holds; on failure the plugin logs the reasons and stays inert.
 	//
-	// Anchors, all verified against every build in docs/versions.md (tests/ExeDiscoveryTests):
+	// Anchors, all verified against every build in tools/builds.py (tests/ExeDiscoveryTests):
 	//  - the ExamineMenu and scrap-callback vtables, by RTTI class name
 	//  - the three call sites, by byte patterns that must match exactly once
 	//  - call targets and struct offsets, cross-checked against Address Library

@@ -9,7 +9,7 @@ namespace ScrapStacks::MenuAccess
 {
 	namespace
 	{
-		// Layout verified against 1.10.163 (docs/re-findings.md). The compiler checks
+		// Layout verified against the 1.10.163 executable. The compiler checks
 		// CommonLib's declared offsets against what the executable was seen to use.
 		static_assert(offsetof(RE::ExamineMenu, invInterface) == 0x370);
 		static_assert(offsetof(RE::InventoryUserUIInterface, stackedEntries) == 0x60);
@@ -86,7 +86,7 @@ namespace ScrapStacks::MenuAccess
 		}
 
 		// Engine virtuals are called by the slot numbers seen in the executable
-		// (docs/re-findings.md), not by CommonLib's declaration order.
+		// (confirmed at startup by GameDiscovery), not by CommonLib's declaration order.
 		template <class R = void, class... Args>
 		R CallVfunc(void* a_object, std::size_t a_slot, Args... a_args)
 		{
@@ -135,7 +135,7 @@ namespace ScrapStacks::MenuAccess
 		Row row{ .object = item->object };
 
 		// The copy the yield is computed from: BuildWeaponScrappingArray asks the
-		// menu for exactly this (vfunc 0x26, docs/re-findings.md).
+		// menu for exactly this (vfunc 0x26).
 		const auto* reference = CallVfunc<const RE::BGSObjectInstanceExtra*>(a_menu, Slot::kGetObjectInstanceExtra);
 		const auto  scrappedMods = reference ? ToEntries(reference->GetIndexData()) : std::vector<ModEntry>{};
 		row.scrappedMods = DescribeWithNames(scrappedMods);

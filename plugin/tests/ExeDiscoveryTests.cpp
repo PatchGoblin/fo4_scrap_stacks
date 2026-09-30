@@ -4,7 +4,7 @@
 // runs in game (logic/Discovery.h) is pointed at each unpacked exe in re/, with the
 // same Address Library cross-checks the plugin makes, and must find the same hook
 // sites an independent analysis found (tools/, Python). Builds that aren't on disk
-// are skipped; see docs/versions.md and tools/fetch_exes.ps1 to get them.
+// are skipped; see tools/fetch_exes.ps1 to get them.
 
 #include <doctest/doctest.h>
 
